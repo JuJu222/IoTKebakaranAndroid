@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "71973105445",
+    "firebase_url": "https://iotalp-default-rtdb.firebaseio.com",
+    "project_id": "iotalp",
+    "storage_bucket": "iotalp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71973105445:android:cfd846348c4caf0f1634cc",
+        "android_client_info": {
+          "package_name": "com.example.iotkebakaran"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "71973105445-ql8rna6bgd8uaao49tg0sp9a215ad67t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVrDsx19FJxHY2RPzXsudrYSsiIS1R-zM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "71973105445-ql8rna6bgd8uaao49tg0sp9a215ad67t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
