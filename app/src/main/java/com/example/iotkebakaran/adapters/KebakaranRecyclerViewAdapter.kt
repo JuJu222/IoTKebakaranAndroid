@@ -7,14 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.iotkebakaran.R
 import com.example.iotkebakaran.models.Kebakaran
+import com.example.iotkebakaran.ui.beranda.BerandaFragment
 import com.example.iotkebakaran.ui.info.InfoFragment
 
-class KebakaranRecyclerViewAdapter(private val list: List<Kebakaran>) : RecyclerView.Adapter<KebakaranRecyclerViewAdapter.ViewHolder>() {
+class KebakaranRecyclerViewAdapter(private val list: List<Kebakaran>, private val action: Int) : RecyclerView.Adapter<KebakaranRecyclerViewAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.row_kebakaran, parent, false)
@@ -30,7 +32,7 @@ class KebakaranRecyclerViewAdapter(private val list: List<Kebakaran>) : Recycler
         holder.itemView.setOnClickListener{ view ->
             val bundle = Bundle()
             bundle.putString("id", list[position].id)
-            view.findNavController().navigate(R.id.action_BerandaFragment_to_infoFragment, bundle)
+            view.findNavController().navigate(action, bundle)
         }
     }
 

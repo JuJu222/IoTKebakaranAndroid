@@ -22,11 +22,15 @@ class BerandaViewModel : ViewModel() {
                 val list = ArrayList<Kebakaran>()
 
                 for (kebakaran in dataSnapshot.children) {
-                    val temp = Kebakaran()
-                    temp.id = kebakaran.key.toString()
-                    kebakaran.getValue(Kebakaran.Info::class.java)?.let { temp.info = it }
-                    list.add(temp)
-                    Log.d("AAA", "Value is: $kebakaran")
+                    kebakaran.getValue(Kebakaran.Info::class.java)?.let {
+                        if (it.status) {
+                            val temp = Kebakaran()
+                            temp.id = kebakaran.key.toString()
+                            temp.info = it
+                            list.add(temp)
+                            Log.d("AAA", "Value is: $kebakaran")
+                        }
+                    }
                 }
                 value = list
                 Log.d("AAA", "Value is: $value")

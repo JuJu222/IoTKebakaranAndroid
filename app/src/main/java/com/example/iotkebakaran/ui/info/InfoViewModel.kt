@@ -32,4 +32,8 @@ class InfoViewModel : ViewModel() {
             }
         })
     }
+
+    fun kebakaranSelesai(id: String) {
+        myRef.child(id).child("status").setValue(false)
+    }
 }

@@ -1,22 +1,16 @@
 package com.example.iotkebakaran.ui.info
 
+import android.content.res.ColorStateList
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.navigation.Navigation
 import com.example.iotkebakaran.databinding.FragmentInfoBinding
-import com.example.iotkebakaran.models.Kebakaran
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.ktx.database
-import com.google.firebase.database.ktx.getValue
-import com.google.firebase.ktx.Firebase
 
 class InfoFragment : Fragment() {
 
@@ -39,17 +33,31 @@ class InfoFragment : Fragment() {
 
         val id = arguments?.getString("id")
 
+        binding.infoScrollView.visibility = View.GONE
+
         infoViewModel.getKebakaran(id.toString())
         infoViewModel.kebakaran.observe(viewLifecycleOwner) {
+            val temperatur = it.temperatur.toString() + "°C"
+            val gas = it.gas.toString() + " ppm"
+
             binding.infoAlamatTextView.text = it.alamat
             binding.infoWaktuTextView.text = it.waktu
             binding.infoWaktuSejakTextView.text = it.waktu
-            binding.infoTemperaturTextView.text = it.temperatur.toString()
-            binding.infoGasTextView.text = it.gas.toString()
+            binding.infoTemperaturTextView.text = temperatur
+            binding.infoGasTextView.text = gas
+            if (!it.status) {
+                binding.infoWaktuSejakTextView.text = "Sudah Selesai"
+                binding.infoKebakaranSelesaiButton.isEnabled = false
+                binding.infoKebakaranSelesaiButton.backgroundTintList = ColorStateList.valueOf((ContextCompat.getColor(requireContext(), androidx.appcompat.R.color.material_grey_600)))
+            }
+
+            binding.infoScrollView.visibility = View.VISIBLE
+            binding.infoProgressBar.visibility = View.GONE
         }
 
-        binding.button5.setOnClickListener {
-
+        binding.infoKebakaranSelesaiButton.setOnClickListener {
+            infoViewModel.kebakaranSelesai(id.toString())
+            Toast.makeText(requireContext(), "Status kebakaran telah diganti menjadi selesai", Toast.LENGTH_SHORT).show()
         }
 
         binding.infoBackImageButton.setOnClickListener {
