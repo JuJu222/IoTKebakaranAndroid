@@ -1,6 +1,8 @@
 package com.example.iotkebakaran.ui.info
 
+import android.content.Intent
 import android.content.res.ColorStateList
+import android.net.Uri
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -19,7 +21,6 @@ class InfoFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -39,7 +40,13 @@ class InfoFragment : Fragment() {
         infoViewModel.kebakaran.observe(viewLifecycleOwner) {
             val temperatur = it.temperatur.toString() + "°C"
             val gas = it.gas.toString() + " ppm"
-
+            val longitude = it.longitude.toString()
+            val latitude = it.latitude.toString()
+            binding.googleMapButton.setOnClickListener{
+                val map_url = Intent(android.content.Intent.ACTION_VIEW)
+                map_url.data = Uri.parse("https://www.google.com/maps/search/?api=1&query="+longitude+"%2C-"+latitude)
+                startActivity(map_url)
+            }
             binding.infoAlamatTextView.text = it.alamat
             binding.infoWaktuTextView.text = it.waktu
             binding.infoWaktuSejakTextView.text = it.waktu

@@ -11,6 +11,7 @@ class Kebakaran {
         var tanggal = ""
         var gas = 0
         var temperatur = 0
-        var koordinat = ""
+        var longitude = 0.0
+        var latitude = 0.0
     }
 }

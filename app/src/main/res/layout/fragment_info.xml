@@ -267,7 +267,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button6"
+                android:id="@+id/googleMapButton"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="80dp"
