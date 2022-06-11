@@ -44,7 +44,7 @@ class InfoFragment : Fragment() {
             val latitude = it.latitude.toString()
             binding.googleMapButton.setOnClickListener{
                 val map_url = Intent(android.content.Intent.ACTION_VIEW)
-                map_url.data = Uri.parse("https://www.google.com/maps/search/?api=1&query="+longitude+"%2C-"+latitude)
+                map_url.data = Uri.parse("https://www.google.com/maps/search/?api=1&query="+longitude+"%2C"+latitude+"&dir_action=navigate")
                 startActivity(map_url)
             }
             binding.infoAlamatTextView.text = it.alamat
