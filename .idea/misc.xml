@@ -3,7 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Android Studio Projects/IoTKebakaranAndroid/app/src/main/res/layout/fragment_info.xml" value="0.21" />
+        <entry key="..\:/Android Studio Projects/IoTKebakaranAndroid/app/src/main/res/layout/fragment_beranda.xml" value="0.17831813576494426" />
+        <entry key="..\:/Android Studio Projects/IoTKebakaranAndroid/app/src/main/res/layout/fragment_info.xml" value="0.18900343642611683" />
         <entry key="..\:/Users/japju/AndroidStudioProjects/IoTKebakaran/app/src/main/res/drawable/bottom_nav_icon_color_selector.xml" value="0.298" />
         <entry key="..\:/Users/japju/AndroidStudioProjects/IoTKebakaran/app/src/main/res/drawable/ic_chevron_left.xml" value="0.298" />
         <entry key="..\:/Users/japju/AndroidStudioProjects/IoTKebakaran/app/src/main/res/layout/activity_main.xml" value="0.33" />

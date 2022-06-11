@@ -12,9 +12,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.navigation.Navigation
+import com.example.iotkebakaran.R
 import com.example.iotkebakaran.databinding.FragmentInfoBinding
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.OnMapReadyCallback
 
-class InfoFragment : Fragment() {
+class InfoFragment : Fragment(), OnMapReadyCallback {
 
     private var _binding: FragmentInfoBinding? = null
 
@@ -35,18 +39,20 @@ class InfoFragment : Fragment() {
         val id = arguments?.getString("id")
 
         binding.infoScrollView.visibility = View.GONE
-
+        val mapFragment = childFragmentManager.findFragmentById(R.id.googleMap) as SupportMapFragment
         infoViewModel.getKebakaran(id.toString())
         infoViewModel.kebakaran.observe(viewLifecycleOwner) {
             val temperatur = it.temperatur.toString() + "°C"
             val gas = it.gas.toString() + " ppm"
             val longitude = it.longitude.toString()
             val latitude = it.latitude.toString()
+            mapFragment.getMapAsync(this)
             binding.googleMapButton.setOnClickListener{
                 val map_url = Intent(android.content.Intent.ACTION_VIEW)
                 map_url.data = Uri.parse("https://www.google.com/maps/search/?api=1&query="+longitude+"%2C"+latitude+"&dir_action=navigate")
                 startActivity(map_url)
             }
+
             binding.infoAlamatTextView.text = it.alamat
             binding.infoWaktuTextView.text = it.waktu
             binding.infoWaktuSejakTextView.text = it.waktu
@@ -77,5 +83,9 @@ class InfoFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onMapReady(p0: GoogleMap) {
+        
     }
 }
