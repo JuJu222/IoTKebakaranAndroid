@@ -67,7 +67,7 @@
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                app:layout_constraintTop_toBottomOf="@+id/googleMap" />
 
             <TextView
                 android:id="@+id/infoTanggalTextView"
@@ -236,30 +236,15 @@
             </LinearLayout>
 
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="0dp"
-                android:layout_height="300dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4"
-                tools:src="@tools:sample/avatars" />
-
             <fragment
                 android:id="@+id/googleMap"
                 class="com.google.android.gms.maps.SupportMapFragment"
                 android:layout_width="0dp"
-                android:layout_height="300dp"
-                android:layout_marginStart="16dp"
+                android:layout_height="350dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4"
-                />
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/infoKebakaranSelesaiButton"
                 android:layout_width="0dp"
@@ -283,17 +268,17 @@
                 android:id="@+id/googleMapButton"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
-                android:layout_marginStart="80dp"
-                android:layout_marginEnd="80dp"
+                android:layout_marginStart="64dp"
+                android:layout_marginEnd="64dp"
                 android:backgroundTint="#800007B5"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="Buka di Google Maps"
                 android:textAllCaps="false"
                 android:textSize="12sp"
                 app:cornerRadius="9dp"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView"
-                app:layout_constraintEnd_toEndOf="@+id/imageView"
-                app:layout_constraintStart_toStartOf="@+id/imageView" />
+                app:layout_constraintBottom_toBottomOf="@+id/googleMap"
+                app:layout_constraintEnd_toEndOf="@+id/googleMap"
+                app:layout_constraintStart_toStartOf="@+id/googleMap" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
